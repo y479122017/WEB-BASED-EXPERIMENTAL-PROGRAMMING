@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyChart</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="Chart.bundle.js"></script>
+  </head>
+
+  <body onload="myfunction()">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">SOCIAL WEALTH</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+          <h3>社会财富整体分配状况</h3>
+          <hr />
+          <p id="instruction" style="line-height:30px ">在不均等的社会分配中，假设经济成果总量不变，你个人的经济收入也不变，但随着他人收入水平的变化，你的收入在整个社会中的排名有可能发生变化。</p>
+        </div>
+    </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-xs-4">
+
+          </div>
+          <div class="col-md-8 col-xs-4">
+            <a id="next" class = "btn btn-secondary btn-block" href="#" role="button">我已了解</a>
+          </div>
+        </div>
+      </div>
+
+      <script>
+
+      function myfunction(){
+        setTimeout(function(){
+          document.getElementById("next").href="chart_maintain.html";
+          document.getElementById("next").className = "btn btn-success btn-block";
+        },2000)};
+      </script>
+
+
+  </body>
+</html>

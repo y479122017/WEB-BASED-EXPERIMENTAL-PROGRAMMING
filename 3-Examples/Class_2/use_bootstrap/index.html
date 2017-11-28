@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyChart</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="Chart.bundle.js"></script>
+  </head>
+
+  <body onload="function1();function2();function3()">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">SOCIAL WEALTH</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+          <h3>社会财富整体分配状况</h3>
+          <hr />
+          <p id="instruction" style="line-height:30px ">收入分配均等是指在一定时期内经济活动成果平均分配给各经济主体，每人具有相同的收入。</p>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-md-6">
+            <a id = "again" class = "btn btn-secondary btn-block" href="#" role="button">再次观看</a>
+            <br />
+          </div>
+          <div class="col-sm-4 col-md-6">
+            <a id="next" class = "btn btn-secondary btn-block" href="#" role="button">我已了解</a>
+          </div>
+        </div>
+      </div>
+
+
+    <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myChart = new Chart(ctx,{
+        type:"bar",
+
+        data:{
+          labels:["低"," "," "," ","高"],
+          datasets:[
+            {
+            label: 'Wealth of the Group',
+            data: [20,20,20,20,20],
+            backgroundColor: [
+              'rgba(255,99,132,0.7)',
+              'rgba(54,162,235,0.7)',
+              'rgba(255,206,86,0.7)',
+              'rgba(153,102,255,0.7)',
+              'rgba(255,159,64,0.7)'
+            ],
+            borderColor:[
+              'rgba(255,99,132,1)',
+              'rgba(54,162,235,1)',
+              'rgba(255,206,86,1)',
+              'rgba(153,102,255,1)',
+              'rgba(255,159,64,1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+
+        options: {
+          animation:{
+            duration:"4000"
+          },
+          legend:false,
+          events:false,
+          scales: {
+            yAxes: [{
+              ticks:{
+                max: 50,
+                min:0,
+                stepSize:10,
+                beginAtZero:true
+              }
+            }]
+          }
+        }
+      });
+
+    </script>
+
+    <script>
+      function function1(){
+        setTimeout(function(){
+          document.getElementById("instruction").innerHTML = '而现实社会中的收入分配并不均等。';
+          myChart.data.datasets[0].data[0] = 10;
+          myChart.data.datasets[0].data[1] = 15;
+          myChart.data.datasets[0].data[2] = 20;
+          myChart.data.datasets[0].data[3] = 25;
+          myChart.data.datasets[0].data[4] = 30;
+
+          myChart.update({
+            duration:4000,
+          });
+        },6000)};
+
+      function function2(){
+        setTimeout(function(){
+          document.getElementById("instruction").innerHTML = '甚至存在极大差异。';
+          myChart.data.datasets[0].data[0] = 5;
+          myChart.data.datasets[0].data[1] = 10;
+          myChart.data.datasets[0].data[2] = 15;
+          myChart.data.datasets[0].data[3] = 20;
+          myChart.data.datasets[0].data[4] = 50;
+
+          myChart.update({
+            duration:4000,
+          })
+        },12000)};
+
+    function function3(){
+      setTimeout(function(){
+        document.getElementById("again").href="index.html";
+        document.getElementById("next").href="introduction.html";
+        document.getElementById("again").className = "btn btn-danger btn-block";
+        document.getElementById("next").className = "btn btn-success btn-block";
+      },16000)};
+    </script>
+
+  </body>
+</html>
